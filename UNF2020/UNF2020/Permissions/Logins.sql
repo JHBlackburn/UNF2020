@@ -1,0 +1,3 @@
+﻿
+CREATE LOGIN UnfSQLReadOnly WITH PASSWORD = 'VoTechSwoop!';
+
