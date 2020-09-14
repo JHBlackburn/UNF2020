@@ -36,7 +36,7 @@ SELECT
 	POWER(5, 3) as [5To3Power]
 
 
-/*Let's Try nonb-integer division*/
+/*Let's Try non-integer division*/
 SELECT 8/3 as [Integer-Rounded Division]
 
 /*The importance of datatypes*/
@@ -174,7 +174,7 @@ OR PersonFirstName = 'Michael' AND Industry = 'Oil And Gas'
 select * 
 from jobs.Placement
 
-/* get all the distinct peoplewho have been placed by VoTech no matter how many time*/
+/* get all the distinct people who have been placed by VoTech no matter how many times*/
 Select 
 	PersonFirstName,
 	PersonLastName 
@@ -232,7 +232,7 @@ Group By
 
 /*group by challage time*/
 
-/*code together: analyze the average starting salary over time at CSX*/
+/*code together: analyze the average starting salary over time (each month) at CSX*/
 
 
 
@@ -272,3 +272,64 @@ GROUP BY
 	PersonFirstName, 
 	PersonLastName
 HAVING AVG(DATEDIFF(MONTH, StartDate, ISNULL(EndDate, GETDATE()))) < 12 --people with an avg tenure of less than 12 months
+
+
+
+/*****************************/
+/********ORDER BY Demos*******/
+/*****************************/
+
+SELECT * 
+FROM jobs.Placement
+ORDER BY 
+	CompanyName, 
+	PersonLastName
+
+/*By Default, ASC is used unless you specify DESC*/
+SELECT * 
+FROM jobs.Placement
+ORDER BY 
+	CompanyName DESC, 
+	PersonLastName
+
+
+/*By you can specify ASC if you want to*/
+SELECT * 
+FROM jobs.Placement
+ORDER BY 
+	CompanyName ASC, 
+	PersonLastName ASC,
+	PersonFirstName DESC,
+	PersonGender DESC
+
+/*typically the default sort is on the primary key, BUT NOT ALWAYS*/
+SELECT * 
+FROM jobs.Placement
+where PositionTitle in (
+SELECT * 
+FROM jobs.Placement
+ORDER BY Id
+
+
+
+/*****************************/
+/********TOP Demos*******/
+/*****************************/
+
+/* let's talk about TOP */
+SELECT TOP 10 *
+FROM jobs.Placement
+
+
+/* grab the highest earner this year */
+SELECT TOP 1 *
+FROM jobs.Placement 
+WHERE StartDate >= '2020-01-01'
+ORDER BY StartYearlySalary DESC
+
+/* grab the lowest earner this year */
+SELECT TOP 1 *
+FROM jobs.Placement 
+WHERE StartDate >= '2020-01-01'
+ORDER BY StartYearlySalary ASC
+
