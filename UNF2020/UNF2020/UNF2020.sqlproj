@@ -62,10 +62,14 @@
     <Folder Include="Scripts" />
     <Folder Include="Scripts\PostDeploy" />
     <Folder Include="Permissions" />
+    <Folder Include="astronomy" />
+    <Folder Include="astronomy\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="jobs\tables\Placement.sql" />
     <Build Include="schemas\Jobs.sql" />
+    <Build Include="astronomy\Tables\FullMoon.sql" />
+    <Build Include="schemas\astronomy.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeploy\Run.PostDeploy.sql" />
