@@ -64,12 +64,16 @@
     <Folder Include="Permissions" />
     <Folder Include="astronomy" />
     <Folder Include="astronomy\Tables" />
+    <Folder Include="astrology" />
+    <Folder Include="astrology\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="jobs\tables\Placement.sql" />
     <Build Include="schemas\Jobs.sql" />
     <Build Include="astronomy\Tables\FullMoon.sql" />
     <Build Include="schemas\astronomy.sql" />
+    <Build Include="schemas\astrology.sql" />
+    <Build Include="astrology\Tables\Zodiac.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeploy\Run.PostDeploy.sqlcmd" />
@@ -79,5 +83,6 @@
     <None Include="Permissions\Logins.sql" />
     <None Include="Permissions\Users.sql" />
     <None Include="Scripts\PostDeploy\SeedFullMoon.sql" />
+    <None Include="Scripts\PostDeploy\SeedZodiac.sql" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,4 @@
 ﻿
 :r .\SeedPlacement.sql
 :r .\SeedFullMoon.sql
+:r .\SeedZodiac.sql
