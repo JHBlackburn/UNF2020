@@ -1,4 +1,4 @@
-﻿/--SOURCE: Kaggle.com https://www.kaggle.com/lsind18/full-moon-calendar-1900-2050/tasks Accessed 09.16.2020
+﻿--SOURCE: Kaggle.com https://www.kaggle.com/lsind18/full-moon-calendar-1900-2050/tasks Accessed 09.16.2020
 
 DROP TABLE IF EXISTS #tempFullMoon
 CREATE TABLE #tempFullMoon
