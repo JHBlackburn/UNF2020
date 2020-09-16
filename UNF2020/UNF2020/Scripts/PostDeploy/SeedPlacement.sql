@@ -206,7 +206,13 @@ WHILE @placementId <= @totalRecordCount
 				Industry,		
 				PositionTitle,  
 				StartYearlySalary,
-				StartDate = DATEFROMPARTS(RAND()*(YEAR(GETDATE()) - @earliestStartYear)+1 + @earliestStartYear, RAND()*(12 - 1) + 1, RAND()*(27 - 1) + 1 ),
+				StartDate = (SELECT StartDate = (CASE 
+													WHEN RandomDate > GETDATE() THEN DATEADD(YEAR, -1, RandomDate)
+													ELSE RandomDate
+												END)
+												FROM (SELECT RandomDate = DATEFROMPARTS(RAND()*(YEAR(GETDATE()) - @earliestStartYear)+1 + @earliestStartYear, RAND()*(12 - 1) + 1, RAND()*(27 - 1) + 1 )
+													 ) as someRandomDate
+								),
 				EndDate = NULL
 		FROM (SELECT TOP 1 PersonFirstName = FirstName, PersonGender = Gender FROM #tempPersonFirstName ORDER BY NEWID()) as fn
 		CROSS APPLY (SELECT TOP 1 PersonLastName = LastName FROM #tempPersonLastName ORDER BY NEWID()) as ln
