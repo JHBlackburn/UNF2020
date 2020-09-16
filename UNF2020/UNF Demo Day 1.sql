@@ -20,7 +20,7 @@ select 999 as MyFavoriteNumber, 666 as MyLeastFavoriteNumber
 
 /* SQL has a ton of built in functions*/
 select 
-	DATEDIFF(DAY, GETDATE(), '2020-12-31') as DaysUntil2020IsFinallyOver, 
+	DATEDIFF(DAY, GETDATE(), '12-31-2020') as DaysUntil2020IsFinallyOver, 
 	DATEDIFF(MINUTE, GETDATE(), '2020-12-31') as MinutesUntil2020IsFinallyOver,
 	DATEDIFF(SECOND, GETDATE(), '2020-12-31') as SecondsUntil2020IsFinallyOver
 
@@ -100,6 +100,10 @@ WHERE PersonFirstName = 'Brandon'
 
 Select *
 from jobs.Placement
+WHERE PersonFirstName LIKE 'Bra%'
+
+Select *
+from jobs.Placement
 WHERE PersonLastName = 'Anderson'
 
 
@@ -129,6 +133,11 @@ FROM jobs.Placement
 WHERE EndDate = null
 
 
+select * 
+FROM jobs.Placement
+WHERE EndDate > '1/1/2020' OR EndDate is null
+
+
 /*weird right?!*/
 --Even this doesn't work
 select * 
@@ -148,7 +157,9 @@ FROM jobs.Placement
 WHERE LEFT(PositionTitle,1) = 'p'
 
 
-/*We can do logic too!*/
+/*
+We can do logic too!
+*/
 Select *
 from jobs.Placement
 WHERE CompanyCity = 'Jacksonville' AND CompanyState = 'GA'
@@ -160,10 +171,39 @@ WHERE CompanyCity = 'Jacksonville' OR CompanyState = 'GA'
 
 Select *
 from jobs.Placement
-WHERE PersonFirstName = 'Ashley' AND CompanyCity = 'Jacksonville' 
-OR PersonFirstName = 'Michael' AND Industry = 'Oil And Gas'
+WHERE (PersonFirstName = 'Ashley' AND CompanyCity = 'Jacksonville' )
+OR (PersonFirstName = 'Michael' AND Industry = 'Oil And Gas')
 
 
+Select *
+from jobs.Placement
+WHERE PersonGender = 'Male' AND CompanyCity = 'Jacksonville'
+
+--DEMO 5 Minute Challenge
+--1. All Placements
+select *
+from jobs.Placement
+
+--2. All placements where the person is still with their company (think about it)
+select *
+from jobs.Placement
+where EndDate is null
+
+--3. All placements where the person works in Transportation
+select *
+from jobs.Placement
+where Industry = 'transportation'
+
+--4. All placements where the person works at either CSX or University of North Florida
+select *
+from jobs.Placement
+where CompanyName = 'CSX' OR CompanyName = 'University of north florida'
+
+--4. All placements where the person still works with their company and the company is in Grocery Or the person does not work with their company anymore and their first name is Ashley
+select *
+from jobs.Placement
+where (EndDate is null AND Industry = 'Grocery')
+OR (EndDate is not null AND PersonFirstName = 'Ashley')
 
 
 /*****************************/
