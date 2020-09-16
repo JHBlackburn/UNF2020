@@ -72,11 +72,12 @@
     <Build Include="schemas\astronomy.sql" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Scripts\PostDeploy\Run.PostDeploy.sql" />
+    <PostDeploy Include="Scripts\PostDeploy\Run.PostDeploy.sqlcmd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PostDeploy\SeedPlacement.sql" />
     <None Include="Permissions\Logins.sql" />
     <None Include="Permissions\Users.sql" />
+    <None Include="Scripts\PostDeploy\SeedFullMoon.sql" />
   </ItemGroup>
 </Project>

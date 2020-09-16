@@ -1,0 +1,3 @@
+﻿
+:r .\SeedPlacement.sql
+:r .\SeedFullMoon.sql
