@@ -1,74 +1,10 @@
-﻿
+﻿GO
+
+
 SET NOCOUNT ON
 
 DECLARE @totalRecordCount INT = 1000
 DECLARE @earliestStartYear INT = 2014
-
-
-DROP TABLE IF EXISTS #tempPersonLastName
-CREATE TABLE #tempPersonLastName
-(
-	LastName VARCHAR(100)
-)
-
-INSERT INTO #tempPersonLastName
-	(
-		LastName
-	)
-	VALUES
-	('Smith'),
-	('Johnson'),
-	('Williams'),
-	('Brown'),
-	('Jones'),
-	('Garcia'),
-	('Miller'),
-	('Davis'),
-	('Rodriguez'),
-	('Martinez'),
-	('Hernandez'),
-	('Lopez'),
-	('Gonzalez'),
-	('Wilson'),
-	('Anderson')
-
-
-DROP TABLE IF EXISTS #tempPersonFirstName
-CREATE TABLE #tempPersonFirstName
-(
-	FirstName VARCHAR(100),
-	Gender VARCHAR(10)
-)
-INSERT INTO #tempPersonFirstName
-	(
-		FirstName,
-		Gender
-	)
-	VALUES
-	('Ashley', 'Female'),
-	('Jessica', 'Female'),
-	('Jennifer', 'Female'),
-	('Megan', 'Female'),
-	('Sarah', 'Female'),
-	('Amanda', 'Female'),
-	('Brittany', 'Female'),
-	('Heather', 'Female'),
-	('Stephanie', 'Female'),
-	('Colleen', 'Female'),
-	('Crystal', 'Female'),
-	('Winnie', 'Female'),
-	('Christopher', 'Male'),
-	('Michael', 'Male'),
-	('Joshua', 'Male'),
-	('Daniel', 'Male'),
-	('David', 'Male'),
-	('Matthew', 'Male'),
-	('Brandon', 'Male'),
-	('James', 'Male'),
-	('Ryan', 'Male'),
-	('John', 'Male'),
-	('Christian', 'Male'),
-	('Raymond', 'Male')
 
 
 DROP TABLE IF EXISTS #tempCompany
@@ -214,8 +150,8 @@ WHILE @placementId <= @totalRecordCount
 													 ) as someRandomDate
 								),
 				EndDate = NULL
-		FROM (SELECT TOP 1 PersonFirstName = FirstName, PersonGender = Gender FROM #tempPersonFirstName ORDER BY NEWID()) as fn
-		CROSS APPLY (SELECT TOP 1 PersonLastName = LastName FROM #tempPersonLastName ORDER BY NEWID()) as ln
+		FROM (SELECT TOP 1 PersonFirstName = FirstName, PersonGender = Gender FROM government.CensusFirstName ORDER BY NEWID()) as fn
+		CROSS APPLY (SELECT TOP 1 PersonLastName = LastName FROM government.CensusLastName ORDER BY NEWID()) as ln
 		CROSS APPLY (SELECT TOP 1 CompanyName, CompanyCity, CompanyState, Industry FROM #tempCompany ORDER BY NEWID()) as c
 		CROSS APPLY (SELECT TOP 1 PositionTitle, StartYearlySalary = CAST(RAND()*(SalaryRangeEndUSD - SalaryRangeStartUSD) + SalaryRangeStartUSD AS DECIMAL(14,2)) FROM #tempPosition ORDER BY NEWID()) as p
 

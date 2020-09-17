@@ -1,4 +1,7 @@
 ﻿
+:r .\SeedCensusFirstName.sql
+:r .\SeedCensusLastName.sql
+:r .\SeedSocialSecurityPerson.sql
 :r .\SeedPlacement.sql
 :r .\SeedFullMoon.sql
 :r .\SeedZodiac.sql

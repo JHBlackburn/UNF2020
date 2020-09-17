@@ -1,4 +1,6 @@
-﻿--Source: Wikipedia.org https://en.wikipedia.org/wiki/Zodiac Accessed 09.16.2020
+﻿GO
+
+--Source: Wikipedia.org https://en.wikipedia.org/wiki/Zodiac Accessed 09.16.2020
 
 DECLARE @numberOfYearsAfter1900 INT = 150;
 
