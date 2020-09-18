@@ -80,6 +80,7 @@
     <Build Include="government\Tables\CensusLastName.sql" />
     <Build Include="government\Tables\CensusFirstName.sql" />
     <Build Include="government\Tables\SocialSecurityPerson.sql" />
+    <Build Include="government\Tables\RegisteredDriver.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeploy\Run.PostDeploy.sqlcmd" />
@@ -93,5 +94,6 @@
     <None Include="Scripts\PostDeploy\SeedCensusFirstName.sql" />
     <None Include="Scripts\PostDeploy\SeedCensusLastName.sql" />
     <None Include="Scripts\PostDeploy\SeedSocialSecurityPerson.sql" />
+    <None Include="Scripts\PostDeploy\SeedRegisteredDriver.sql" />
   </ItemGroup>
 </Project>
