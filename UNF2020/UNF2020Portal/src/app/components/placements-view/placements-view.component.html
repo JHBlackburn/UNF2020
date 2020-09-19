@@ -1,0 +1,19 @@
+<p>placements-view works!</p>
+<table class="table-generic">
+    <tr><th *ngFor="let definition of placementDefinitions">{{definition}}</th></tr>
+    <tr *ngFor="let placement of placements">
+        <td>{{placement.id}}</td>
+        <td>{{placement.personFirstName}}</td>
+        <td>{{placement.personLastName}}</td>
+        <td>{{placement.personGender}}</td>
+        <td>{{placement.companyName}}</td>
+        <td>{{placement.companyCity}}</td>
+        <td>{{placement.companyState}}</td>
+        <td>{{placement.industry}}</td>
+        <td>{{placement.positionTitle}}</td>
+        <td>{{placement.startYearlySalary | currency}}</td>
+        <td>{{placement.startDate | date}}</td>
+        <td>{{placement.endDate | date}}</td>
+    </tr>
+
+</table>
